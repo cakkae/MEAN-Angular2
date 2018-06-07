@@ -62,7 +62,6 @@
   <input type="type" name="amount" class="form-control" placeholder="*Amount" automcomplete="off" formControlName="amount"/>
   <ul class="help-block">
     <li *ngIf="form.controls.amount.dirty && form.controls.amount.errors?.required">This field is required.</li>
-    <li *ngIf="form.controls.amount.dirty && form.controls.amount.errors?.amountValidatorChechker">Must be a number (Currency)</li>
   </ul>
 </div>
 </div>
@@ -89,15 +88,14 @@
 </form>
 <!-- New Blog Form -->
 
-
 <!-- Panel Start -->
 <div *ngIf="!newPost">
   <!-- Panel Outer Layer -->
-<ng-container *ngFor="let blog of blogPosts">
-  <div class="panel panel-primary" *ngIf="username === blog.createdBy">
-    <!-- Panel Title -->
+<div *ngFor="let blog of blogPosts">
+<div class="panel panel-primary"  *ngIf="username === blog.createdBy">
 
-    <div class="panel-heading" >
+    <!-- Panel Title -->
+    <div class="panel-heading">
       <h2 class="panel-title"><strong>Expense title:</strong> &nbsp;&nbsp;{{ blog.title }}</h2>
     </div>
 
@@ -127,10 +125,8 @@
     </div>
     <!-- Panel Footer End -->
 
-
   </div>
-</ng-container>
+</div>
   <!-- Panel Outer Layer -->
-
 </div>
 <!-- Panel End -->

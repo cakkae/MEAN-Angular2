@@ -166,8 +166,6 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  
-
   ngOnInit() {
     // Get profile username on page load
     this.authService.getProfile().subscribe(profile => {

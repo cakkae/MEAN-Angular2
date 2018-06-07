@@ -65,7 +65,7 @@ module.exports = (router) => {
                 res.json({ success: false, message: err }); // Return general error message
               }
             } else {
-              res.json({ success: true, message: 'Expense saved!' }); // Return success message
+              res.json({ success: true, message: 'Blog saved!' }); // Return success message
             }
           });
         }
@@ -85,7 +85,7 @@ module.exports = (router) => {
       } else {
         // Check if blogs were found in database
         if (!blogs) {
-          res.json({ success: false, message: 'No expense found.' }); // Return error of no blogs found
+          res.json({ success: false, message: 'No blogs found.' }); // Return error of no blogs found
         } else {
           res.json({ success: true, blogs: blogs }); // Return success and blogs array
         }
@@ -99,17 +99,17 @@ module.exports = (router) => {
   router.get('/singleBlog/:id', (req, res) => {
     // Check if id is present in parameters
     if (!req.params.id) {
-      res.json({ success: false, message: 'No expense ID was provided.' }); // Return error message
+      res.json({ success: false, message: 'No blog ID was provided.' }); // Return error message
     } else {
       // Check if the blog id is found in database
       Blog.findOne({ _id: req.params.id }, (err, blog) => {
         // Check if the id is a valid ID
         if (err) {
-          res.json({ success: false, message: 'Not a valid expense id' }); // Return error message
+          res.json({ success: false, message: 'Not a valid blog id' }); // Return error message
         } else {
           // Check if blog was found by id
           if (!blog) {
-            res.json({ success: false, message: 'Expense not found.' }); // Return error message
+            res.json({ success: false, message: 'Blog not found.' }); // Return error message
           } else {
             // Find the current user that is logged in
             User.findOne({ _id: req.decoded.userId }, (err, user) => {
@@ -123,7 +123,7 @@ module.exports = (router) => {
                 } else {
                   // Check if the user who requested single blog is the one who created it
                   if (user.username !== blog.createdBy) {
-                    res.json({ success: false, message: 'You are not authorized to edit this expense.' }); // Return authentication reror
+                    res.json({ success: false, message: 'You are not authorized to eidt this blog.' }); // Return authentication reror
                   } else {
                     res.json({ success: true, blog: blog }); // Return success
                   }
@@ -142,17 +142,17 @@ module.exports = (router) => {
   router.put('/updateBlog', (req, res) => {
     // Check if id was provided
     if (!req.body._id) {
-      res.json({ success: false, message: 'No expense id provided' }); // Return error message
+      res.json({ success: false, message: 'No blog id provided' }); // Return error message
     } else {
       // Check if id exists in database
       Blog.findOne({ _id: req.body._id }, (err, blog) => {
         // Check if id is a valid ID
         if (err) {
-          res.json({ success: false, message: 'Not a valid expense id' }); // Return error message
+          res.json({ success: false, message: 'Not a valid blog id' }); // Return error message
         } else {
           // Check if id was found in the database
           if (!blog) {
-            res.json({ success: false, message: 'Expense id was not found.' }); // Return error message
+            res.json({ success: false, message: 'Blog id was not found.' }); // Return error message
           } else {
             // Check who user is that is requesting blog update
             User.findOne({ _id: req.decoded.userId }, (err, user) => {
@@ -166,7 +166,7 @@ module.exports = (router) => {
                 } else {
                   // Check if user logged in the the one requesting to update blog post
                   if (user.username !== blog.createdBy) {
-                    res.json({ success: false, message: 'You are not authorized to edit this expense post.' }); // Return error message
+                    res.json({ success: false, message: 'You are not authorized to edit this blog post.' }); // Return error message
                   } else {
                     blog.title = req.body.title; // Save latest blog title
                     blog.body = req.body.body; // Save latest body
@@ -181,7 +181,7 @@ module.exports = (router) => {
                           res.json({ success: false, message: err }); // Return error message
                         }
                       } else {
-                        res.json({ success: true, message: 'Expense Updated!' }); // Return success message
+                        res.json({ success: true, message: 'Blog Updated!' }); // Return success message
                       }
                     });
                   }
@@ -210,7 +210,7 @@ module.exports = (router) => {
         } else {
           // Check if blog was found in database
           if (!blog) {
-            res.json({ success: false, messasge: 'Expense was not found' }); // Return error message
+            res.json({ success: false, messasge: 'Blog was not found' }); // Return error message
           } else {
             // Get info on user who is attempting to delete post
             User.findOne({ _id: req.decoded.userId }, (err, user) => {
@@ -224,14 +224,14 @@ module.exports = (router) => {
                 } else {
                   // Check if user attempting to delete blog is the same user who originally posted the blog
                   if (user.username !== blog.createdBy) {
-                    res.json({ success: false, message: 'You are not authorized to delete this expense post' }); // Return error message
+                    res.json({ success: false, message: 'You are not authorized to delete this blog post' }); // Return error message
                   } else {
                     // Remove the blog from database
                     blog.remove((err) => {
                       if (err) {
                         res.json({ success: false, message: err }); // Return error message
                       } else {
-                        res.json({ success: true, message: 'Expense deleted!' }); // Return success message
+                        res.json({ success: true, message: 'Blog deleted!' }); // Return success message
                       }
                     });
                   }

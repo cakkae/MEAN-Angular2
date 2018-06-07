@@ -54,9 +54,6 @@ export class DeleteBlogComponent implements OnInit {
         this.blog = {
           title: data.blog.title, // Set title
           body: data.blog.body, // Set body
-          category: data.blog.category,
-          date: data.blog.date,
-          amount: data.blog.amount,
           createdBy: data.blog.createdBy, // Set created_by field
           createdAt: data.blog.createdAt // Set created_at field
         }
