@@ -52,7 +52,7 @@
     "styleExt": "css",
     "prefixInterfaces": false,
     "inline": {
-      "style": true,
+      "style": false,
       "template": false
     },
     "spec": {

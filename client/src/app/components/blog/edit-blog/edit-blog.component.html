@@ -1,4 +1,4 @@
-<h1 class="page-header">Edit Expense</h1>
+<h1 class="page-header">Edit Blog</h1>
 
 <!-- Custom Success/Erro Message -->
 <div class="row show-hide-message" *ngIf="message">
@@ -18,21 +18,9 @@
 
   <!-- Body Field -->
   <div class="form-group">
-    <label for="body">Description</label>
+    <label for="body">Body</label>
     <!-- Body Input -->
-    <textarea [disabled]="processing" name="body" rows="8" cols="80" [(ngModel)]="blog.body" class="form-control" placeholder="*Expense Description"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="category">Category</label>
-    <!-- Body Input -->
-    <input [disabled]="processing" name="category" [(ngModel)]="blog.category" class="form-control" placeholder="*Expense Category"/>
-  </div>
-
-  <div class="form-group">
-    <label for="amount">Amount</label>
-    <!-- Body Input -->
-    <input [disabled]="processing" name="amount" [(ngModel)]="blog.amount" class="form-control" placeholder="*Expense Amount"/>
+    <textarea [disabled]="processing" name="body" rows="8" cols="80" [(ngModel)]="blog.body" class="form-control" placeholder="*Blog Body"></textarea>
   </div>
 
   <!-- Delete Button -->

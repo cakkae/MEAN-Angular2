@@ -1,4 +1,4 @@
-<h1 class="page-header">Registration page </h1>
+<h1 class="page-header">Register pages </h1>
 
 <!-- Custom Success/Error Message -->
 <div class="row show-hide-message">
@@ -35,7 +35,7 @@
         <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is required</li>
         <li *ngIf="(form.controls.email.errors?.minlength && form.controls.email.dirty || form.controls.email.errors?.maxlength && form.controls.email.dirty ) && form.controls.email.dirty">Minimum characters: 5, Maximum characters: 30</li>
         <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">This must be a valid e-mail</li>
-        
+        <li *ngIf="emailMessage">{{ emailMessage}}</li>
       </ul>
     </div>
   </div>
