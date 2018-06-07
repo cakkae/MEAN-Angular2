@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gugui3z24/MEAN-Stack-With-Angular-2-Tutorial.git"
+    "url": "git+https://github.com/cakkae/MEAN-Angular2.git"
   },
   "keywords": [
     "MEAN",
@@ -18,12 +18,12 @@
     "2",
     "Application"
   ],
-  "author": "David Acosta",
+  "author": "Adnan Beganovic",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gugui3z24/MEAN-Stack-With-Angular-2-Tutorial/issues"
+    "url": "https://github.com/cakkae/MEAN-Angular2.git/issues"
   },
-  "homepage": "https://github.com/gugui3z24/MEAN-Stack-With-Angular-2-Tutorial#readme",
+  "homepage": "https://github.com/cakkae/MEAN-Angular2.git#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
