@@ -6,7 +6,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 @Injectable()
 export class AuthService {
 
-  domain = "http://localhost/"; // Development Domain - Not Needed in Production
+  domain = "http://adnan.company/"; // Development Domain - Not Needed in Production
   authToken;
   user;
   options;
