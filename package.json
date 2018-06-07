@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "cd client && ng build --prod &&  cd.. && node index.js"
+    "build": "cd client && ng build --prod && cd.. && node index.js"
   },
   "repository": {
     "type": "git",
@@ -23,13 +23,13 @@
   "bugs": {
     "url": "https://github.com/cakkae/MEAN-Angular2.git/issues"
   },
-  "homepage": "https://github.com/cakkae/MEAN-Angular2.git#readme",  
+  "homepage": "https://github.com/cakkae/MEAN-Angular2.git#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.17.2",
-    "cors": "^2.8.3",
-    "express": "^4.15.3",
-    "jsonwebtoken": "^7.4.1",
-    "mongoose": "^4.10.2"
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.2",
+    "mongoose": "^4.13.14"
   }
 }

@@ -85,7 +85,7 @@ module.exports = (router) => {
       } else {
         // Check if blogs were found in database
         if (!blogs) {
-          res.json({ success: false, message: 'No expenses found.' }); // Return error of no blogs found
+          res.json({ success: false, message: 'No expense found.' }); // Return error of no blogs found
         } else {
           res.json({ success: true, blogs: blogs }); // Return success and blogs array
         }
@@ -164,12 +164,12 @@ module.exports = (router) => {
                 if (!user) {
                   res.json({ success: false, message: 'Unable to authenticate user.' }); // Return error message
                 } else {
-                  // Check if user logged in the the one requesting to update expense post
+                  // Check if user logged in the the one requesting to update blog post
                   if (user.username !== blog.createdBy) {
                     res.json({ success: false, message: 'You are not authorized to edit this expense post.' }); // Return error message
                   } else {
-                    blog.title = req.body.title; 
-                    blog.body = req.body.body; 
+                    blog.title = req.body.title; // Save latest blog title
+                    blog.body = req.body.body; // Save latest body
                     blog.date = req.body.date;
                     blog.category = req.body.category;
                     blog.amount = req.body.amount;
@@ -210,7 +210,7 @@ module.exports = (router) => {
         } else {
           // Check if blog was found in database
           if (!blog) {
-            res.json({ success: false, messasge: 'Blog was not found' }); // Return error message
+            res.json({ success: false, messasge: 'Expense was not found' }); // Return error message
           } else {
             // Get info on user who is attempting to delete post
             User.findOne({ _id: req.decoded.userId }, (err, user) => {
@@ -224,14 +224,14 @@ module.exports = (router) => {
                 } else {
                   // Check if user attempting to delete blog is the same user who originally posted the blog
                   if (user.username !== blog.createdBy) {
-                    res.json({ success: false, message: 'You are not authorized to delete this blog post' }); // Return error message
+                    res.json({ success: false, message: 'You are not authorized to delete this expense post' }); // Return error message
                   } else {
                     // Remove the blog from database
                     blog.remove((err) => {
                       if (err) {
                         res.json({ success: false, message: err }); // Return error message
                       } else {
-                        res.json({ success: true, message: 'Blog deleted!' }); // Return success message
+                        res.json({ success: true, message: 'Expense deleted!' }); // Return success message
                       }
                     });
                   }
